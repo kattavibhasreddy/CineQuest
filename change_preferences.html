@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Change Preferences</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Change Your Preferences</h2>
+        <form method="POST">
+            <input type="text" name="favorite_hero" value="{{ user.favorite_hero }}" placeholder="Favorite Hero" required>
+            <input type="text" name="favorite_director" value="{{ user.favorite_director }}" placeholder="Favorite Director" required>
+            <input type="text" name="favorite_genre" value="{{ user.favorite_genre }}" placeholder="Favorite Genre" required>
+            <button type="submit">Update Preferences</button>
+        </form>
+        <a href="{{ url_for('recommendations') }}">Back to Recommendations</a>
+    </div>
+</body>
+</html>

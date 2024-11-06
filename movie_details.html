@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{{ movie.title }} Details</title>
+</head>
+<body>
+    <div class="container">
+        <h2>{{ movie.title }}</h2>
+        <p><strong>Actors:</strong> {{ movie.actors }}</p>
+        <p><strong>Director:</strong> {{ movie.director }}</p>
+        <p><strong>Genre:</strong> {{ movie.genre }}</p>
+        <p><strong>Plot:</strong> {{ movie.plot }}</p>
+        <a href="{{ url_for('recommendations') }}">Back to Recommendations</a>
+    </div>
+</body>
+</html>

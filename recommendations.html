@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Movie Recommendations</title>
+    <style>
+        .button-container form {
+            display: inline-block;
+            margin-right: 10px; /* Adds a small gap between the buttons */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Your Recommended Movies</h2>
+        <ul>
+            {% for movie in movies %}
+                <li>
+                    {{ movie }}
+                    <a href="{{ url_for('movie_details', movie_title=movie) }}">
+                        <button type="button">Show Details</button>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="button-container">
+            <form action="{{ url_for('change_preferences') }}" method="get">
+                <button type="submit">Change Preferences</button>
+            </form>
+            <form action="{{ url_for('recommendations') }}" method="post">
+                <button type="submit">Get More Recommendations</button>
+            </form>
+        </div>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</body>
+</html>
